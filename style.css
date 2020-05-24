@@ -1,16 +1,39 @@
 body {
     background-color: black;
     font-family: "Fira Sans";
-    margin: 5em;
     color: white;
     font-weight: 500;
     text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    background-color: green;
+    padding: 0.5em;
+    font-size: 5em;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+
+}
+
+.red {
+
+}
+
+#container {
+    padding: 2em;
 }
 
 .smaller {
-    font-size: 10em;
+    font-size: 5em;
 }
 
 .hero {
-    font-size: 15em;
+    font-size: 10em;
 }
