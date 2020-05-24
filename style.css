@@ -1,8 +1,16 @@
 body {
     background-color: black;
+    font-family: "Fira Sans";
+    margin: 5em;
+    color: white;
+    font-weight: 500;
+    text-align: right;
 }
 
-#hero {
-    color: white;
-    font-size: 20em;
+.smaller {
+    font-size: 10em;
+}
+
+.hero {
+    font-size: 15em;
 }
