@@ -18,9 +18,8 @@ function updateStatus() {
             statusElement.innerHTML = data;
             let statusText = statusElement.querySelector("span.status").innerHTML.trim();
             let banner = document.getElementById("banner");
-            banner.className = "" // Remove all old colours.
             if (statusText === 'All Systems Operational') {
-                banner.classList.add("green");
+                banner.className = "green";
             };
             banner.innerText = statusText;
         }
