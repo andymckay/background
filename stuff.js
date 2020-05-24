@@ -23,7 +23,6 @@ function updateStatus() {
                 banner.classList.add("green");
             };
             banner.innerText = statusText;
-            document.removeChild(statusElement);
         }
     );
 
