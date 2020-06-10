@@ -21,6 +21,9 @@ function updateStatus() {
             if (statusText === 'All Systems Operational') {
                 banner.className = "green";
             };
+            if (statusText === 'Minor Service Outage') {
+                banner.className = "yellow";
+            };
             banner.innerText = statusText;
         }
     );
