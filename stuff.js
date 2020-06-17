@@ -16,13 +16,21 @@ function updateStatus() {
         .then(data => {
             let statusElement = document.createElement("div");
             statusElement.innerHTML = data;
-            let statusText = statusElement.querySelector("span.status").innerHTML.trim();
             let banner = document.getElementById("banner");
+            let statusText = statusElement.querySelector("span.status")
+            if (statusText) {
+                statusText = statusText.innerHTML.trim();
+            } else {
+                statusText = 'Problem';
+            }
             if (statusText === 'All Systems Operational') {
                 banner.className = "green";
             };
             if (statusText === 'Minor Service Outage') {
                 banner.className = "yellow";
+            };
+            if (statusText === 'Problem') {
+                banner.className = "red";
             };
             banner.innerText = statusText;
         }
