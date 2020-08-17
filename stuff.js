@@ -11,28 +11,26 @@ function updateClock() {
 }
 
 function updateStatus() {
-    fetch('https://www.githubstatus.com/')
-        .then(response => response.text())
+    fetch('https://www.githubstatus.com/api/v2/components.json')
+        .then(response => response.json())
         .then(data => {
-            let statusElement = document.createElement("div");
-            statusElement.innerHTML = data;
-            let banner = document.getElementById("banner");
-            let statusText = statusElement.querySelector("span.status")
-            if (statusText) {
-                statusText = statusText.innerHTML.trim();
-            } else {
-                statusText = 'Problem';
+            let statusText = 'Calculating...'
+            for (let component of data.components) {
+                let className = 'red';
+                let statusText = 'Actions serious outage';
+                if (component.name === 'GitHub Actions') {
+                    if (component.status === 'operational') {
+                        statusText = 'Actions operational'
+                        className = 'green';
+                    }
+                    if (component.status === 'partial_outage') {
+                        statusText = 'Actions partial outage'
+                        className = 'yellow';
+                    }
+                    banner.className = className;
+                    banner.innerText = statusText;
+                }
             }
-            if (statusText === 'All Systems Operational') {
-                banner.className = "green";
-            };
-            if (statusText === 'Minor Service Outage') {
-                banner.className = "yellow";
-            };
-            if (statusText === 'Problem') {
-                banner.className = "red";
-            };
-            banner.innerText = statusText;
         }
     );
 
